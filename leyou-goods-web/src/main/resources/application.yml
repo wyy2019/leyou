@@ -6,7 +6,7 @@ spring:
   thymeleaf:
     cache: false  # 默认不进行缓存
   rabbitmq:
-    host: 47.103.147.81
+    host: 42.103.147.82
     username: leyou
     password: leyou
     virtual-host: /leyou

@@ -15,10 +15,24 @@ zuul:
     item-service: /item/** # 商品微服务的映射路径
     search-service: /search/** # 路由到搜索微服务
     user-service: /user/** # 路由到用户微服务
+    auth-service: /auth/** # 路由到用户微服务
     upload-service:
       path: /upload/**
       serviceId: upload-service
       strip-prefix: false #去掉upload前缀,上传图片时路径只有一个upload，而Controller中有了一个，因此要去掉一个
+  add-host-header: true
+  sensitive-headers: # 配置进制使用敏感头信息，否则set-cookie无效
   ignored-services:
     - upload-service # 忽略upload-service服务
-
+leyou:
+  jwt:
+    pubKeyPath: F:\\tmp\\rsa\\rsa.pub # 公钥地址
+    cookieName: LY_TOKEN # cookie的名称
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
